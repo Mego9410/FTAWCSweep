@@ -87,10 +87,15 @@ export function Nav({
       <div className="nav-wc-stripe" aria-hidden />
       <div className="nav">
         <div className="nav-inner container">
-          <div className="nav-brand">
+          <button
+            type="button"
+            className="nav-brand"
+            onClick={() => onTab('leaderboard')}
+            aria-label="Back to leaderboard"
+          >
             <Wordmark />
             <WcEmblem className="nav-wc-emblem" />
-          </div>
+          </button>
           <TabNav
             tab={tab}
             onTab={onTab}
