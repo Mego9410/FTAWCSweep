@@ -1,0 +1,110 @@
+/* ============================================================
+   FIFA World Cup 2026 — tournament branding layer
+   (sits on top of FTA tokens; keeps FTA gold for actions)
+   ============================================================ */
+
+:root {
+  --wc-navy:       #0A1628;
+  --wc-navy-mid:   #0F2140;
+  --wc-navy-light: #152A52;
+  --wc-green:      #00C853;
+  --wc-green-bright:#5DFF9E;
+  --wc-purple:     #7B2FD4;
+  --wc-purple-bright:#A855F7;
+  --wc-red:        #FF3B5C;
+  --wc-cyan:       #38BDF8;
+  --wc-stripe:     linear-gradient(90deg, var(--wc-green) 0%, var(--wc-purple) 50%, var(--wc-red) 100%);
+}
+
+body{
+  background:var(--surface);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 100% -20%, rgba(123,47,212,.06), transparent 55%),
+    radial-gradient(ellipse 80% 60% at 0% 100%, rgba(0,200,83,.05), transparent 50%);
+}
+
+/* WC ribbon on nav */
+.nav-wc-stripe{height:4px;background:var(--wc-stripe)}
+.nav-brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.nav-wc-emblem{height:38px;width:auto;display:none}
+@media (min-width:681px){
+  .nav-wc-emblem{display:block}
+}
+
+/* Section accents */
+.band{
+  background-color:var(--surface-2);
+  background-image:
+    linear-gradient(180deg, rgba(10,22,40,.03) 0%, transparent 120px),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 79px,
+      rgba(10,22,40,.025) 79px,
+      rgba(10,22,40,.025) 80px
+    );
+}
+.band .eyebrow{color:var(--wc-purple);font-weight:800}
+.band .sec-head h2{position:relative}
+.band .sec-head h2::after{
+  content:"";display:block;width:56px;height:4px;margin-top:12px;border-radius:2px;
+  background:var(--wc-stripe)
+}
+.band .sec-head.center h2::after{margin-left:auto;margin-right:auto}
+
+/* Hero & gate — photo + WC colour wash */
+.hero-bg-photo,.gate-bg-photo{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%
+}
+.hero-bg-accent,.gate-bg-accent{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(115deg, rgba(10,22,40,.92) 0%, rgba(15,33,64,.78) 42%, rgba(123,47,212,.35) 100%),
+    linear-gradient(0deg, rgba(0,0,0,.55) 0%, transparent 45%, rgba(0,0,0,.25) 100%);
+  mix-blend-mode:normal
+}
+.hero-emblem-watermark,.gate-emblem-watermark{
+  position:absolute;right:-4%;bottom:8%;width:min(340px,55vw);height:auto;
+  opacity:.14;pointer-events:none;z-index:0;filter:drop-shadow(0 8px 24px rgba(0,0,0,.3))
+}
+.hero-wc-wordmark,.gate-wc-wordmark{
+  display:block;height:28px;width:auto;margin:0 auto 16px;filter:brightness(0) invert(1);
+  opacity:.95
+}
+.hero-host-flags,.gate-host-flags{
+  display:inline-flex;align-items:center;gap:8px;margin-top:10px;
+  font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(255,255,255,.75)
+}
+.hero-host-flags .dot,.gate-host-flags .dot{
+  width:4px;height:4px;border-radius:50%;background:var(--wc-green-bright)
+}
+
+/* Stat cards — WC accent top edge */
+.hero-stat{position:relative;overflow:hidden}
+.hero-stat::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--wc-stripe)
+}
+
+/* Active nav — WC purple tint option: keep gold but add stripe on active */
+.nav-link.active{
+  background:linear-gradient(180deg,#fff8e8 0%,var(--gold) 100%);
+  border:1px solid rgba(123,47,212,.15)
+}
+
+/* Team page hero stripe */
+.team-hero .eyebrow{color:var(--wc-cyan)}
+
+/* Footer WC accent */
+.footer{
+  background:
+    linear-gradient(180deg, var(--ink-pure) 0%, var(--wc-navy) 100%);
+  border-top:4px solid transparent;
+  border-image:var(--wc-stripe) 1
+}
+
+/* Gate eyebrow on dark */
+.gate-content .eyebrow,.hero-content .eyebrow{
+  color:var(--wc-green-bright);
+  text-shadow:0 1px 12px rgba(0,200,83,.25)
+}

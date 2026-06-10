@@ -1,5 +1,6 @@
 import { ownerOf } from '../data/players';
 import { TeamName } from './common';
+import { WcEmblem, WcWordmark } from './WcBrand';
 import type { TournamentState } from '../engine/tournament';
 
 export function Hero({ state }: { state: TournamentState }) {
@@ -8,11 +9,20 @@ export function Hero({ state }: { state: TournamentState }) {
   return (
     <section className="hero container">
       <div className="hero-frame">
-        <div className="hero-bg" aria-hidden />
-        <div className="hero-scrim" aria-hidden />
+        <div className="hero-bg" aria-hidden>
+          <img src="/wc-hero.jpg" alt="" className="hero-bg-photo" />
+          <div className="hero-bg-accent" />
+        </div>
+        <WcEmblem className="hero-emblem-watermark" />
         <div className="hero-content">
-          <div className="eyebrow">FIFA World Cup 2026 · Canada · Mexico · USA</div>
+          <WcWordmark className="hero-wc-wordmark" />
+          <div className="eyebrow">Canada · Mexico · USA</div>
           <h1 className="hero-title">The Office Sweepstake</h1>
+          <p className="hero-host-flags">
+            <span>11 Jun – 19 Jul 2026</span>
+            <span className="dot" aria-hidden />
+            <span>104 matches</span>
+          </p>
           <p className="hero-sub">
             48 teams, 18 players, one trophy. Whoever owns the team that lifts the
             World Cup on 19 July takes the pot.

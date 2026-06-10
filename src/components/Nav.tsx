@@ -1,4 +1,5 @@
 import { Wordmark } from './common';
+import { WcEmblem } from './WcBrand';
 
 export type Tab = 'leaderboard' | 'groups' | 'bracket' | 'players' | 'matches';
 
@@ -49,9 +50,13 @@ export function Nav({
 }) {
   return (
     <header className="nav-header">
+      <div className="nav-wc-stripe" aria-hidden />
       <div className="nav">
         <div className="nav-inner container">
-          <Wordmark />
+          <div className="nav-brand">
+            <Wordmark />
+            <WcEmblem className="nav-wc-emblem" />
+          </div>
           <TabNav
             tab={tab}
             onTab={onTab}

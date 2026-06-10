@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Wordmark } from './common';
+import { WcEmblem, WcWordmark } from './WcBrand';
 
 const PASSWORD = 'Fr@nk';
 
@@ -20,12 +21,16 @@ export function Gate({ onUnlock }: { onUnlock: () => void }) {
   return (
     <div className="gate">
       <div className="gate-frame">
-        <div className="gate-bg" aria-hidden />
-        <div className="gate-scrim" aria-hidden />
+        <div className="gate-bg" aria-hidden>
+          <img src="/wc-hero.jpg" alt="" className="gate-bg-photo" />
+          <div className="gate-bg-accent" />
+        </div>
+        <WcEmblem className="gate-emblem-watermark" />
         <div className="gate-inner">
           <Wordmark variant="gate" />
           <div className="gate-content">
-            <p className="eyebrow">FIFA World Cup 2026 · Office sweepstake</p>
+            <WcWordmark className="gate-wc-wordmark" />
+            <p className="eyebrow">Office sweepstake</p>
             <h1>World Cup Sweepstake</h1>
             <p className="gate-sub">Enter the password to view draws, fixtures, and the live leaderboard.</p>
           </div>
