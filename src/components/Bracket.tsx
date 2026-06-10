@@ -27,12 +27,12 @@ export function Bracket({ state }: { state: TournamentState }) {
         <Round title="Round of 16" matches={byStage('R16')} />
         <Round title="Quarter-finals" matches={byStage('QF')} />
         <Round title="Semi-finals" matches={byStage('SF')} />
-        <div className="round center">
+        <div className="round round-finals">
           <h4>Final</h4>
           {byStage('final').map((m) => (
             <Tie key={m.no} match={m} isFinal />
           ))}
-          <h4 style={{ marginTop: 24 }}>Third place</h4>
+          <h4>Third place</h4>
           {byStage('bronze').map((m) => (
             <Tie key={m.no} match={m} />
           ))}

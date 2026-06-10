@@ -5,12 +5,13 @@ import { Leaderboard } from './components/Leaderboard';
 import { Groups } from './components/Groups';
 import { Bracket } from './components/Bracket';
 import { Players } from './components/Players';
+import { Matches } from './components/Matches';
 import { Nav } from './components/Nav';
 import { Footer } from './components/Footer';
 import { computeTournament } from './engine/tournament';
 
 const UNLOCK_KEY = 'fta-wc-unlocked';
-type Tab = 'leaderboard' | 'groups' | 'bracket' | 'players';
+type Tab = 'leaderboard' | 'groups' | 'bracket' | 'players' | 'matches';
 
 export default function App() {
   const [unlocked, setUnlocked] = useState(
@@ -45,6 +46,11 @@ export default function App() {
         <div className={`band ${tab === 'leaderboard' ? '' : 'band-hidden'}`}>
           <div className="container section">
             <Leaderboard state={state} />
+          </div>
+        </div>
+        <div className={`band ${tab === 'matches' ? '' : 'band-hidden'}`}>
+          <div className="container section">
+            <Matches state={state} />
           </div>
         </div>
         <div className={`band ${tab === 'groups' ? '' : 'band-hidden'}`}>

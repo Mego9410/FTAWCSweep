@@ -62,6 +62,7 @@ function GroupCard({
         <span className="lt">{letter}</span> Group {letter}
         {complete && <span style={{ marginLeft: 'auto', fontSize: 11, color: 'var(--fg-3)', fontWeight: 600 }}>Final</span>}
       </h3>
+      <div className="table-scroll">
       <table className="gt">
         <thead>
           <tr>
@@ -97,6 +98,7 @@ function GroupCard({
           })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
@@ -105,6 +107,7 @@ function ThirdPlaceTable({ rows, qualified }: { rows: StandingRow[]; qualified: 
   return (
     <div className="third-card">
       <h3>Third-placed teams — best eight qualify</h3>
+      <div className="table-scroll">
       <table className="third-table">
         <thead>
           <tr>
@@ -132,6 +135,7 @@ function ThirdPlaceTable({ rows, qualified }: { rows: StandingRow[]; qualified: 
           })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

@@ -9,7 +9,8 @@
   /* ----- BRAND ----------------------------------------------------------- */
   --gold:            #E4AD25;
   --gold-hover:      #CE9A1B;
-  --gold-deep:       #B4862A;
+  --gold-deep:       #8A6518;   /* darker for text on light backgrounds */
+  --gold-on-dark:    #F5D78A;   /* eyebrow / accents on hero */
   --gold-tint:       #FBF1D6;
   --gold-tint-2:     #F6E7BE;
 
@@ -17,9 +18,11 @@
   --ink:             #0F0F0A;
   --ink-pure:        #090909;
   --fg-1:            #1A1A17;
-  --fg-2:            #5E5E5A;
-  --fg-3:            #8C8C88;
-  --fg-4:            #B6B6B2;
+  --fg-2:            #454542;   /* body / secondary — WCAG AA on white */
+  --fg-3:            #5E5E5A;   /* captions, meta */
+  --fg-4:            #767672;   /* placeholders, de-emphasised */
+  --fg-on-dark:      #FFFFFF;
+  --fg-on-dark-muted:#F0F0EE;
 
   --surface:         #FFFFFF;
   --surface-2:       #F4F4F3;
@@ -110,7 +113,7 @@ h4, .h4   { font-size: var(--fs-h4);  line-height: var(--lh-h4); font-weight: 70
 .lead { font-size: var(--fs-lead); line-height: var(--lh-lead); color: var(--fg-2); }
 .eyebrow { font-size: var(--fs-xs); font-weight: 700; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--gold-deep); }
 small, .small { font-size: var(--fs-sm); line-height: var(--lh-sm); }
-.meta { font-size: var(--fs-xs); color: var(--fg-3); }
+.meta { font-size: var(--fs-xs); color: var(--fg-3); font-weight: 500; }
 
 a { color: inherit; text-decoration: none; }
 .link-gold { color: var(--gold-deep); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }

@@ -40,7 +40,7 @@
 .badge-nhs{background:var(--badge-nhs-bg);color:var(--badge-nhs-fg)}
 .badge-mixed{background:var(--badge-mixed-bg);color:var(--badge-mixed-fg)}
 .badge-private{background:var(--badge-private-bg);color:var(--badge-private-fg)}
-.badge-tip{background:#fff;color:var(--gold-deep);box-shadow:var(--shadow-sm);padding:6px 14px;font-size:12.5px}
+.badge-tip{background:#fff;color:var(--gold-deep);border:1px solid var(--border);box-shadow:var(--shadow-sm);padding:6px 14px;font-size:12.5px}
 
 .avail{display:inline-flex;align-items:center;gap:6px;color:var(--available-fg);font-weight:600;font-size:14px}
 
