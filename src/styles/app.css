@@ -53,9 +53,9 @@ button{font-family:var(--font-sans)}
   background:rgba(10,22,40,.45);cursor:pointer;z-index:49
 }
 .nav-mobile-menu{
-  position:absolute;left:0;right:0;top:100%;z-index:51;
+  position:fixed;left:0;right:0;top:var(--nav-menu-top);z-index:51;
   background:#fff;border-bottom:1px solid var(--border);box-shadow:var(--shadow-md);
-  padding:12px 0 20px;max-height:calc(100dvh - 72px);overflow-y:auto
+  padding:12px 0 20px;max-height:calc(100dvh - var(--nav-menu-top));overflow-y:auto
 }
 .nav-mobile-links{display:flex;flex-direction:column;gap:6px}
 .nav-mobile-links .nav-link{
@@ -395,6 +395,7 @@ button{font-family:var(--font-sans)}
   .nav-actions{display:none}
   .nav-menu-toggle{display:inline-flex}
   .nav-inner{min-height:64px}
+  :root{--nav-menu-top:calc(4px + env(safe-area-inset-top) + 64px)}
   .wordmark img{height:34px}
   .footer-inner{grid-template-columns:1fr;gap:32px}
   .sec-head{margin-bottom:var(--sp-8)}

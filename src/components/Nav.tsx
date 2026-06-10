@@ -83,46 +83,48 @@ export function Nav({
   }
 
   return (
-    <header className="nav-header">
-      <div className="nav-wc-stripe" aria-hidden />
-      <div className="nav">
-        <div className="nav-inner container">
-          <button
-            type="button"
-            className="nav-brand"
-            onClick={() => onTab('leaderboard')}
-            aria-label="Back to leaderboard"
-          >
-            <Wordmark />
-            <WcEmblem className="nav-wc-emblem" />
-          </button>
-          <TabNav
-            tab={tab}
-            onTab={onTab}
-            className="nav-links"
-            label="Sweepstake sections"
-          />
-          <div className="nav-actions">
-            <button type="button" className="btn btn-outline-ink btn-sm" onClick={onLock}>
-              Lock
+    <>
+      <header className="nav-header">
+        <div className="nav-wc-stripe" aria-hidden />
+        <div className="nav">
+          <div className="nav-inner container">
+            <button
+              type="button"
+              className="nav-brand"
+              onClick={() => onTab('leaderboard')}
+              aria-label="Back to leaderboard"
+            >
+              <Wordmark />
+              <WcEmblem className="nav-wc-emblem" />
+            </button>
+            <TabNav
+              tab={tab}
+              onTab={onTab}
+              className="nav-links"
+              label="Sweepstake sections"
+            />
+            <div className="nav-actions">
+              <button type="button" className="btn btn-outline-ink btn-sm" onClick={onLock}>
+                Lock
+              </button>
+            </div>
+            <button
+              type="button"
+              className={`nav-menu-toggle ${menuOpen ? 'is-open' : ''}`}
+              aria-expanded={menuOpen}
+              aria-controls="nav-mobile-menu"
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              <span className="nav-menu-bars" aria-hidden>
+                <span />
+                <span />
+                <span />
+              </span>
+              <span className="nav-menu-label">{menuOpen ? 'Close' : 'Menu'}</span>
             </button>
           </div>
-          <button
-            type="button"
-            className={`nav-menu-toggle ${menuOpen ? 'is-open' : ''}`}
-            aria-expanded={menuOpen}
-            aria-controls="nav-mobile-menu"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            <span className="nav-menu-bars" aria-hidden>
-              <span />
-              <span />
-              <span />
-            </span>
-            <span className="nav-menu-label">{menuOpen ? 'Close' : 'Menu'}</span>
-          </button>
         </div>
-      </div>
+      </header>
 
       {menuOpen && (
         <button
@@ -157,6 +159,6 @@ export function Nav({
           </button>
         </div>
       </div>
-    </header>
+    </>
   );
 }
