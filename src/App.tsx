@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Gate } from './components/Gate';
 import { Hero } from './components/Hero';
 import { Leaderboard } from './components/Leaderboard';
@@ -58,16 +58,25 @@ function AppShell({
 }) {
   const { teamId, openTeam, closeTeam } = useTeamRoute();
 
+  function selectTab(next: Tab) {
+    closeTeam();
+    onTab(next);
+  }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [tab, teamId]);
+
   return (
     <TeamNavProvider openTeam={openTeam}>
-      <Nav tab={tab} onTab={onTab} onLock={onLock} />
+      <Nav tab={tab} onTab={selectTab} onLock={onLock} />
       {teamId ? (
         <main className="band">
           <TeamPage teamId={teamId} state={state} onBack={closeTeam} />
         </main>
       ) : (
         <>
-          <Hero state={state} />
+          {tab === 'leaderboard' && <Hero state={state} />}
           <main>
             <div className={`band ${tab === 'leaderboard' ? '' : 'band-hidden'}`}>
               <div className="container section">
