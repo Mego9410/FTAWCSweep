@@ -1,0 +1,61 @@
+/* ============================================================
+   Frank Taylor & Associates — Component primitives
+   (ported verbatim from the FTA design system)
+   Requires fta-tokens.css
+   ============================================================ */
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-sans);font-weight:700;font-size:15px;line-height:1;
+  padding:14px 22px;border-radius:var(--r-md);border:1.5px solid transparent;
+  cursor:pointer;transition:transform var(--dur) var(--ease), background var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  white-space:nowrap;text-decoration:none;
+}
+.btn:active{transform:translateY(0)}
+.btn .arw{transition:transform var(--dur) var(--ease)}
+.btn:hover .arw{transform:translateX(3px)}
+
+.btn-primary{background:var(--gold);color:var(--ink)}
+.btn-primary:hover{background:var(--gold-hover);transform:translateY(-1px);box-shadow:var(--shadow-gold)}
+
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000;transform:translateY(-1px);box-shadow:var(--shadow-md)}
+
+.btn-outline{background:#fff;color:var(--ink);border-color:var(--gold)}
+.btn-outline:hover{background:var(--gold-tint);transform:translateY(-1px)}
+
+.btn-outline-ink{background:#fff;color:var(--ink);border-color:var(--ink)}
+.btn-outline-ink:hover{background:var(--ink);color:#fff;transform:translateY(-1px)}
+
+.btn-ghost{background:transparent;color:var(--ink);border-color:transparent;padding-left:6px;padding-right:6px}
+.btn-ghost:hover{color:var(--gold-deep)}
+
+.btn-sm{padding:10px 16px;font-size:14px}
+.btn-lg{padding:17px 28px;font-size:16px}
+
+/* ---------- BADGES / PILLS ---------- */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+  padding:4px 10px;border-radius:var(--r-pill);letter-spacing:.01em}
+.badge-nhs{background:var(--badge-nhs-bg);color:var(--badge-nhs-fg)}
+.badge-mixed{background:var(--badge-mixed-bg);color:var(--badge-mixed-fg)}
+.badge-private{background:var(--badge-private-bg);color:var(--badge-private-fg)}
+.badge-tip{background:#fff;color:var(--gold-deep);box-shadow:var(--shadow-sm);padding:6px 14px;font-size:12.5px}
+
+.avail{display:inline-flex;align-items:center;gap:6px;color:var(--available-fg);font-weight:600;font-size:14px}
+
+/* ---------- CARDS ---------- */
+.card{background:#fff;border-radius:var(--r-lg);transition:transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out)}
+
+.feature-card{background:#fff;border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:14px}
+.feature-card .disc{width:52px;height:52px;border-radius:var(--r-pill);background:var(--surface-disc);display:flex;align-items:center;justify-content:center}
+.feature-card h4{font-size:17px;color:var(--fg-1)}
+.feature-card p{font-size:14px;color:var(--fg-2)}
+
+.disc-gold{width:64px;height:64px;border-radius:var(--r-pill);background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm)}
+
+/* ---------- INPUT ---------- */
+.field{height:54px;border:1.5px solid var(--gold);border-radius:var(--r-md);padding:0 18px;font-size:15px;
+  font-family:var(--font-sans);color:var(--fg-1);background:#fff;width:100%}
+.field::placeholder{color:var(--fg-4)}
+.field:focus{outline:none;box-shadow:0 0 0 3px var(--gold-tint)}
