@@ -64,8 +64,9 @@ body{
   mix-blend-mode:normal
 }
 .hero-emblem-watermark,.gate-emblem-watermark{
-  position:absolute;right:-4%;bottom:8%;width:min(340px,55vw);height:auto;
-  opacity:.14;pointer-events:none;z-index:0;filter:drop-shadow(0 8px 24px rgba(0,0,0,.3))
+  position:absolute;right:0;bottom:0;width:min(280px,70%);height:auto;
+  opacity:.12;pointer-events:none;z-index:0;transform:translate(8%,8%);
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,.3))
 }
 .hero-wc-wordmark,.gate-wc-wordmark{
   display:block;height:28px;width:auto;margin:0 auto 16px;filter:brightness(0) invert(1);
@@ -84,12 +85,6 @@ body{
 .hero-stat{position:relative;overflow:hidden}
 .hero-stat::before{
   content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--wc-stripe)
-}
-
-/* Active nav — WC purple tint option: keep gold but add stripe on active */
-.nav-link.active{
-  background:linear-gradient(180deg,#fff8e8 0%,var(--gold) 100%);
-  border:1px solid rgba(123,47,212,.15)
 }
 
 /* Team page hero stripe */

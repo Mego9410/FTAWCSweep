@@ -29,13 +29,17 @@ export function Bracket({ state }: { state: TournamentState }) {
         <Round title="Semi-finals" matches={byStage('SF')} />
         <div className="round round-finals">
           <h4>Final</h4>
-          {byStage('final').map((m) => (
-            <Tie key={m.no} match={m} isFinal />
-          ))}
+          <div className="round-matches">
+            {byStage('final').map((m) => (
+              <Tie key={m.no} match={m} isFinal />
+            ))}
+          </div>
           <h4>Third place</h4>
-          {byStage('bronze').map((m) => (
-            <Tie key={m.no} match={m} />
-          ))}
+          <div className="round-matches">
+            {byStage('bronze').map((m) => (
+              <Tie key={m.no} match={m} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -46,9 +50,11 @@ function Round({ title, matches }: { title: string; matches: ResolvedMatch[] }) 
   return (
     <div className="round">
       <h4>{title}</h4>
-      {matches.map((m) => (
-        <Tie key={m.no} match={m} />
-      ))}
+      <div className="round-matches">
+        {matches.map((m) => (
+          <Tie key={m.no} match={m} />
+        ))}
+      </div>
     </div>
   );
 }
