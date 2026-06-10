@@ -17,8 +17,8 @@ button{font-family:var(--font-sans)}
 .wordmark{display:inline-flex;align-items:center;text-decoration:none}
 .wordmark img{display:block;height:40px;width:auto;border-radius:12px}
 .wordmark-footer img{height:34px}
-.wordmark-gate{margin:0 auto 22px}
-.wordmark-gate img{height:46px;border-radius:14px}
+.wordmark-gate{margin:0 auto 28px;display:flex;justify-content:center}
+.wordmark-gate img{height:52px;border-radius:14px;box-shadow:var(--shadow-md)}
 
 /* ---------------- NAV (FTA site) ---------------- */
 .nav-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
@@ -36,6 +36,7 @@ button{font-family:var(--font-sans)}
 .nav-tabs-mobile{
   display:none;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;
   -webkit-overflow-scrolling:touch;padding:10px 0 12px;
+  scroll-padding-inline:var(--gutter);
   border-bottom:1px solid var(--border);scrollbar-width:none
 }
 .nav-tabs-mobile::-webkit-scrollbar{display:none}
@@ -47,30 +48,39 @@ button{font-family:var(--font-sans)}
 .gate{min-height:100vh;padding:var(--sp-6) var(--gutter) var(--sp-12)}
 .gate-frame{
   position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:calc(100vh - 48px);
-  display:flex;align-items:center;justify-content:center;padding:32px
+  display:flex;align-items:center;justify-content:center;padding:40px 32px
 }
 .gate-bg{
   position:absolute;inset:0;
   background:
-    linear-gradient(135deg, rgba(228,173,37,.18) 0%, transparent 45%),
-    linear-gradient(180deg, #2a2820 0%, #141410 55%, #0a0a08 100%);
+    linear-gradient(135deg, rgba(228,173,37,.2) 0%, transparent 42%),
+    linear-gradient(180deg, #3a3428 0%, #25221c 38%, #141410 100%);
 }
 .gate-bg:after{
   content:"";position:absolute;inset:0;
   background:
-    radial-gradient(900px 420px at 20% 20%, rgba(228,173,37,.22), transparent 60%),
-    radial-gradient(700px 360px at 80% 70%, rgba(255,255,255,.06), transparent 55%);
+    radial-gradient(800px 380px at 18% 22%, rgba(228,173,37,.28), transparent 62%),
+    radial-gradient(640px 320px at 82% 68%, rgba(255,255,255,.07), transparent 58%);
 }
-.gate-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,22,28,.35),rgba(20,22,28,.55))}
-.gate-card{
-  position:relative;width:min(480px,100%);padding:36px 34px 34px;text-align:center;
-  border-radius:var(--r-lg)!important
+.gate-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,22,28,.4),rgba(20,22,28,.5))}
+.gate-inner{
+  position:relative;z-index:1;width:min(440px,100%);display:flex;flex-direction:column;align-items:center
 }
-.gate-card h1{font-size:30px;margin:0 0 8px;color:var(--fg-1)}
-.gate-card .sub{color:var(--fg-2);font-size:15px;margin:0 0 24px;line-height:1.55}
-.gate-card .field{margin-bottom:12px;text-align:center}
-.gate-err{color:#c0392b;font-size:13.5px;font-weight:600;margin-bottom:12px;min-height:18px}
-.gate-btn{width:100%;justify-content:center}
+.gate-content{text-align:center;color:#fff;margin-bottom:32px;max-width:380px}
+.gate-content .eyebrow{color:var(--gold-on-dark);margin:0 0 14px}
+.gate-content h1{color:#fff;font-size:34px;line-height:1.1;margin:0 0 14px;letter-spacing:var(--tracking-tight)}
+.gate-sub{color:var(--fg-on-dark-muted);font-size:16px;line-height:1.6;margin:0}
+.gate-panel{
+  width:100%;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:28px 26px 26px;box-shadow:var(--shadow-lg)
+}
+.gate-label{
+  display:block;text-align:left;font-size:13px;font-weight:700;color:var(--fg-1);
+  margin-bottom:8px;letter-spacing:.01em
+}
+.gate-panel .field{margin-bottom:10px}
+.gate-err{color:#c0392b;font-size:13.5px;font-weight:600;margin:4px 0 14px;min-height:18px;text-align:left}
+.gate-btn{width:100%;justify-content:center;margin-top:4px}
 
 /* ---------------- HERO (FTA site) ---------------- */
 .hero{padding-top:var(--sp-6);padding-bottom:var(--sp-12)}
@@ -186,7 +196,7 @@ button{font-family:var(--font-sans)}
 .gt tr.q3 td:first-child{box-shadow:inset 3px 0 0 var(--gold)}
 .gt .posn{color:var(--fg-3);font-weight:700;width:18px;margin-right:4px}
 .qlegend{display:flex;gap:18px;margin-top:18px;font-size:12.5px;color:var(--fg-2);flex-wrap:wrap}
-.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -2px}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .table-scroll .gt,.table-scroll .third-table{min-width:520px}
 .qlegend .dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
 
@@ -289,14 +299,14 @@ button{font-family:var(--font-sans)}
 
 /* ---------------- RESPONSIVE ---------------- */
 @media (max-width:980px){
-  :root{--gutter:16px}
+  :root{--gutter:22px}
   .section{padding:var(--sp-12) 0}
   .groups-grid,.players-grid{grid-template-columns:repeat(2,1fr);gap:16px}
   .hero{padding-bottom:var(--sp-8)}
   .hero-title{font-size:36px}
   .hero-frame{min-height:auto;border-radius:var(--r-lg)}
-  .hero-content{padding:40px 20px 0}
-  .hero-panel{width:calc(100% - 32px);margin-bottom:28px}
+  .hero-content{padding:40px var(--gutter) 0}
+  .hero-panel{width:100%;margin-bottom:28px;padding:0 var(--gutter) var(--gutter)}
   .hero-stats{grid-template-columns:repeat(3,1fr);gap:10px}
   .hero-stat{padding:12px 10px}
   .hero-stat .n{font-size:22px}
@@ -308,22 +318,23 @@ button{font-family:var(--font-sans)}
   .footer-inner{grid-template-columns:1fr;gap:32px}
   .sec-head{margin-bottom:var(--sp-8)}
   .sec-head h2{font-size:28px}
-  .fixtures-filters{padding:18px}
   .fixtures-filter{min-width:100%;flex:1 1 100%}
+  .rounds{scroll-padding-inline:var(--gutter);margin-inline:0}
 }
 
 @media (max-width:680px){
+  :root{--gutter:24px}
   .groups-grid,.players-grid,.footer-cols{grid-template-columns:1fr}
   .hero-title{font-size:30px}
   .hero-sub{font-size:16px}
   .hero-stats{grid-template-columns:1fr}
-  .hero-stat{display:flex;align-items:center;justify-content:space-between;text-align:left;padding:14px 16px}
+  .hero-stat{display:flex;align-items:center;justify-content:space-between;text-align:left;padding:16px 18px}
   .hero-stat .l{margin-top:0}
-  .champ-banner{flex-wrap:wrap;gap:12px}
+  .champ-banner{flex-wrap:wrap;gap:12px;padding:16px 18px}
   .champ-banner .owner{margin-left:0;text-align:left;width:100%}
   .champ-banner .cn{font-size:19px}
   .lb-row{
-    grid-template-columns:36px 1fr;gap:12px;padding:16px;
+    grid-template-columns:36px 1fr;gap:12px;padding:18px 20px;
     align-items:start
   }
   .lb-meta{
@@ -332,19 +343,25 @@ button{font-family:var(--font-sans)}
   }
   .lb-name{font-size:17px;flex-wrap:wrap}
   .lb-alive{font-size:14px}
+  .player-card{padding:22px 20px}
   .player-card .teamline{
     flex-direction:column;align-items:flex-start;gap:8px
   }
+  .group-card h3{padding:14px 20px}
+  .fixture-row{padding:18px 20px}
   .fixture-side,.fixture-side.away{
     flex-wrap:wrap;gap:6px 10px
   }
   .fixture-owner{width:100%;order:3}
   .fixture-score{font-size:22px}
   .fixture-meta .fixture-venue{width:100%;margin-left:0;margin-top:4px}
-  .gate-frame{min-height:auto;padding:20px 16px}
-  .gate-card{padding:28px 20px}
-  .search-panel{padding:18px}
-  .round{min-width:min(280px,85vw)}
+  .tie{padding:14px 16px}
+  .gate-frame{min-height:auto;padding:32px var(--gutter)}
+  .gate-content{margin-bottom:24px}
+  .gate-content h1{font-size:28px}
+  .gate-sub{font-size:15px}
+  .gate-panel{padding:24px 22px 22px}
+  .round{min-width:min(280px,calc(100vw - var(--gutter) * 2 - 32px))}
   .footer{padding-bottom:max(var(--sp-16),env(safe-area-inset-bottom))}
 }
 
