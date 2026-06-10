@@ -6,8 +6,11 @@ import { Groups } from './components/Groups';
 import { Bracket } from './components/Bracket';
 import { Players } from './components/Players';
 import { Matches } from './components/Matches';
+import { TeamPage } from './components/TeamPage';
 import { Nav } from './components/Nav';
 import { Footer } from './components/Footer';
+import { TeamNavProvider } from './context/TeamNav';
+import { useTeamRoute } from './hooks/useTeamRoute';
 import { computeTournament } from './engine/tournament';
 
 const UNLOCK_KEY = 'fta-wc-unlocked';
@@ -38,39 +41,63 @@ export default function App() {
   }
 
   return (
-    <>
-      <Nav tab={tab} onTab={setTab} onLock={lock} />
-      <Hero state={state} />
+    <AppShell tab={tab} onTab={setTab} onLock={lock} state={state} />
+  );
+}
 
-      <main>
-        <div className={`band ${tab === 'leaderboard' ? '' : 'band-hidden'}`}>
-          <div className="container section">
-            <Leaderboard state={state} />
-          </div>
-        </div>
-        <div className={`band ${tab === 'matches' ? '' : 'band-hidden'}`}>
-          <div className="container section">
-            <Matches state={state} />
-          </div>
-        </div>
-        <div className={`band ${tab === 'groups' ? '' : 'band-hidden'}`}>
-          <div className="container section">
-            <Groups state={state} />
-          </div>
-        </div>
-        <div className={`band ${tab === 'bracket' ? '' : 'band-hidden'}`}>
-          <div className="container section">
-            <Bracket state={state} />
-          </div>
-        </div>
-        <div className={`band ${tab === 'players' ? '' : 'band-hidden'}`}>
-          <div className="container section">
-            <Players state={state} />
-          </div>
-        </div>
-      </main>
+function AppShell({
+  tab,
+  onTab,
+  onLock,
+  state,
+}: {
+  tab: Tab;
+  onTab: (t: Tab) => void;
+  onLock: () => void;
+  state: ReturnType<typeof computeTournament>;
+}) {
+  const { teamId, openTeam, closeTeam } = useTeamRoute();
 
+  return (
+    <TeamNavProvider openTeam={openTeam}>
+      <Nav tab={tab} onTab={onTab} onLock={onLock} />
+      {teamId ? (
+        <main className="band">
+          <TeamPage teamId={teamId} state={state} onBack={closeTeam} />
+        </main>
+      ) : (
+        <>
+          <Hero state={state} />
+          <main>
+            <div className={`band ${tab === 'leaderboard' ? '' : 'band-hidden'}`}>
+              <div className="container section">
+                <Leaderboard state={state} />
+              </div>
+            </div>
+            <div className={`band ${tab === 'matches' ? '' : 'band-hidden'}`}>
+              <div className="container section">
+                <Matches state={state} />
+              </div>
+            </div>
+            <div className={`band ${tab === 'groups' ? '' : 'band-hidden'}`}>
+              <div className="container section">
+                <Groups state={state} />
+              </div>
+            </div>
+            <div className={`band ${tab === 'bracket' ? '' : 'band-hidden'}`}>
+              <div className="container section">
+                <Bracket state={state} />
+              </div>
+            </div>
+            <div className={`band ${tab === 'players' ? '' : 'band-hidden'}`}>
+              <div className="container section">
+                <Players state={state} />
+              </div>
+            </div>
+          </main>
+        </>
+      )}
       <Footer />
-    </>
+    </TeamNavProvider>
   );
 }

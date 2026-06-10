@@ -1,6 +1,5 @@
-import { getTeam } from '../data/teams';
 import { ownerOf } from '../data/players';
-import { Flag } from './common';
+import { TeamName } from './common';
 import type { TournamentState } from '../engine/tournament';
 
 export function Hero({ state }: { state: TournamentState }) {
@@ -44,7 +43,6 @@ export function Hero({ state }: { state: TournamentState }) {
 }
 
 function ChampionBanner({ championId }: { championId: string }) {
-  const team = getTeam(championId);
   const owner = ownerOf(championId);
   return (
     <div className="champ-banner">
@@ -52,8 +50,7 @@ function ChampionBanner({ championId }: { championId: string }) {
       <div>
         <div className="ct">World Champions</div>
         <div className="cn">
-          <Flag iso={team.iso} />
-          {team.name}
+          <TeamName teamId={championId} size="lg" />
         </div>
       </div>
       <div className="owner">

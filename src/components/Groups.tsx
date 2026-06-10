@@ -1,5 +1,5 @@
 import { GROUP_LETTERS, getTeam } from '../data/teams';
-import { Flag } from './common';
+import { TeamName } from './common';
 import { SectionHead } from './SectionHead';
 import type { StandingRow, TournamentState } from '../engine/tournament';
 
@@ -77,14 +77,12 @@ function GroupCard({
         </thead>
         <tbody>
           {rows.map((r) => {
-            const team = getTeam(r.teamId);
             return (
               <tr key={r.teamId} className={rowClass(r, qualifiedThirds)}>
                 <td className="tl">
-                  <span className="team">
+                  <span className="team team-in-table">
                     <span className="posn">{r.rank}</span>
-                    <Flag iso={team.iso} />
-                    {team.name}
+                    <TeamName teamId={r.teamId} size="sm" />
                   </span>
                 </td>
                 <td>{r.played}</td>
@@ -125,7 +123,7 @@ function ThirdPlaceTable({ rows, qualified }: { rows: StandingRow[]; qualified: 
             return (
               <tr key={r.teamId} className={qualified.has(r.teamId) ? 'in' : ''}>
                 <td>{i + 1}</td>
-                <td className="tl"><span className="team"><Flag iso={team.iso} />{team.name}</span></td>
+                <td className="tl"><TeamName teamId={r.teamId} size="sm" /></td>
                 <td>{team.group}</td>
                 <td>{r.points}</td>
                 <td>{r.gd > 0 ? `+${r.gd}` : r.gd}</td>
