@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Wordmark } from './common';
 import { WcEmblem } from './WcBrand';
 
@@ -50,6 +50,7 @@ export function Nav({
   onLock: () => void;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const scrollToTopOnMenuClose = useRef(false);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -76,13 +77,15 @@ export function Nav({
       document.body.style.left = '';
       document.body.style.right = '';
       document.body.style.width = '';
-      window.scrollTo(0, scrollY);
+      window.scrollTo(0, scrollToTopOnMenuClose.current ? 0 : scrollY);
+      scrollToTopOnMenuClose.current = false;
       window.removeEventListener('keydown', onKey);
       window.removeEventListener('resize', onResize);
     };
   }, [menuOpen]);
 
   function selectTab(next: Tab) {
+    scrollToTopOnMenuClose.current = true;
     onTab(next);
     setMenuOpen(false);
   }

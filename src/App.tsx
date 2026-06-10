@@ -61,6 +61,7 @@ function AppShell({
   function selectTab(next: Tab) {
     closeTeam();
     onTab(next);
+    window.scrollTo(0, 0);
   }
 
   useEffect(() => {
