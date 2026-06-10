@@ -112,9 +112,12 @@ button{font-family:var(--font-sans)}
 .hero-content .eyebrow{color:var(--gold-on-dark)}
 
 .hero-panel{
-  position:relative;width:min(860px,calc(100% - 64px));margin-top:auto;margin-bottom:44px;z-index:1
+  position:relative;width:min(860px,calc(100% - 64px));margin-top:auto;margin-bottom:44px;z-index:1;
+  text-align:center
 }
-.hero-panel-label{font-weight:700;color:var(--fg-1);margin-bottom:14px;font-size:15px}
+.hero-panel-label{
+  font-weight:700;color:#fff;margin-bottom:14px;font-size:15px;letter-spacing:.01em
+}
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .hero-stat{
   background:#fff;border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;text-align:center
