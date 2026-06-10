@@ -10,6 +10,7 @@ import { TeamPage } from './components/TeamPage';
 import { Nav } from './components/Nav';
 import { Footer } from './components/Footer';
 import { TeamNavProvider } from './context/TeamNav';
+import { WoodenSpoonProvider } from './context/WoodenSpoon';
 import { useTeamRoute } from './hooks/useTeamRoute';
 import { computeTournament } from './engine/tournament';
 
@@ -69,7 +70,8 @@ function AppShell({
   }, [tab, teamId]);
 
   return (
-    <TeamNavProvider openTeam={openTeam}>
+    <WoodenSpoonProvider teamId={state.woodenSpoonTeamId}>
+      <TeamNavProvider openTeam={openTeam}>
       <Nav tab={tab} onTab={selectTab} onLock={onLock} />
       {teamId ? (
         <main className="band">
@@ -108,6 +110,7 @@ function AppShell({
         </>
       )}
       <Footer />
-    </TeamNavProvider>
+      </TeamNavProvider>
+    </WoodenSpoonProvider>
   );
 }

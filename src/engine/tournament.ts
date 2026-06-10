@@ -80,6 +80,7 @@ export interface PlayerStanding {
   isChampionOwner: boolean;
   isRunnerUpOwner: boolean;
   isThirdOwner: boolean;
+  isWoodenSpoonOwner: boolean;
 }
 
 export interface TournamentState {
@@ -99,6 +100,8 @@ export interface TournamentState {
   players: PlayerStanding[];
   playedCount: number;
   totalCount: number;
+  /** Team with most group-stage goals conceded (GD tiebreaker). Null before any group match. */
+  woodenSpoonTeamId: string | null;
 }
 
 const STATE_WEIGHT: Record<TeamState, number> = {
@@ -160,6 +163,21 @@ function cmpOverall(a: StandingRow, b: StandingRow): number {
 
 function teamName(id: string): string {
   return getTeam(id).name;
+}
+
+/** Worst group-stage defence: most conceded, then lower goal difference. */
+function cmpWoodenSpoon(a: StandingRow, b: StandingRow): number {
+  if (b.ga !== a.ga) return b.ga - a.ga;
+  if (a.gd !== b.gd) return a.gd - b.gd;
+  return teamName(a.teamId).localeCompare(teamName(b.teamId));
+}
+
+function woodenSpoonTeamIdFromTables(
+  groupTables: Record<GroupLetter, StandingRow[]>,
+): string | null {
+  const rows = GROUP_LETTERS.flatMap((g) => groupTables[g]);
+  if (!rows.some((r) => r.played > 0)) return null;
+  return [...rows].sort(cmpWoodenSpoon)[0].teamId;
 }
 
 /** Sort a group, applying head-to-head between teams tied on (pts, gd, gf). */
@@ -259,6 +277,7 @@ export function computeTournament(): TournamentState {
     groupComplete[g] = fixtures.every((f) => RESULTS[f.no] != null);
   }
   const allGroupsComplete = GROUP_LETTERS.every((g) => groupComplete[g]);
+  const woodenSpoonTeamId = woodenSpoonTeamIdFromTables(groupTables);
 
   // --- Best third-placed teams ---
   let thirdRanking: StandingRow[] | null = null;
@@ -396,6 +415,7 @@ export function computeTournament(): TournamentState {
       isChampionOwner: !!champion && p.teams.includes(champion),
       isRunnerUpOwner: !!runnerUp && p.teams.includes(runnerUp),
       isThirdOwner: !!third && p.teams.includes(third),
+      isWoodenSpoonOwner: !!woodenSpoonTeamId && p.teams.includes(woodenSpoonTeamId),
     };
   }).sort((a, b) => {
     if (b.bestWeight !== a.bestWeight) return b.bestWeight - a.bestWeight;
@@ -422,6 +442,7 @@ export function computeTournament(): TournamentState {
     players,
     playedCount,
     totalCount: FIXTURES.length,
+    woodenSpoonTeamId,
   };
 }
 

@@ -7,7 +7,7 @@ import {
   stageLabel,
 } from '../engine/teamProfile';
 import type { ResolvedMatch, TournamentState } from '../engine/tournament';
-import { Flag, StatusBadge, TeamName } from './common';
+import { Flag, StatusBadge, TeamName, WoodenSpoonTag } from './common';
 
 export function TeamPage({
   teamId,
@@ -21,6 +21,7 @@ export function TeamPage({
   const team = getTeam(teamId);
   const profile = useMemo(() => getTeamProfile(state, teamId), [state, teamId]);
   const { stats, played, upcoming, groupStanding, progress } = profile;
+  const isWoodenSpoon = state.woodenSpoonTeamId === teamId;
 
   return (
     <div className="container section team-page">
@@ -35,7 +36,10 @@ export function TeamPage({
           </span>
           <div>
             <p className="eyebrow">Group {team.group}</p>
-            <h1 className="team-hero-name">{team.name}</h1>
+            <h1 className="team-hero-name">
+              {team.name}
+              {isWoodenSpoon && <WoodenSpoonTag />}
+            </h1>
             <StatusBadge progress={progress} />
           </div>
         </div>

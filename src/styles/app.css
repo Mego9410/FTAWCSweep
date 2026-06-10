@@ -196,6 +196,8 @@ button{font-family:var(--font-sans)}
 .lb-alive{font-size:13px;color:var(--fg-2);font-weight:600}
 .lb-alive b{color:var(--fg-1)}
 .podium-tag{font-size:18px}
+.wooden-spoon{font-size:17px;line-height:1;flex-shrink:0}
+.team-hero-name .wooden-spoon{font-size:28px;vertical-align:middle;margin-left:8px}
 
 /* ---------------- GROUP TABLES ---------------- */
 .groups-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}

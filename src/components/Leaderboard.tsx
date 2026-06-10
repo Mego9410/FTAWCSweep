@@ -1,4 +1,4 @@
-import { TeamChip } from './common';
+import { TeamChip, WoodenSpoonTag } from './common';
 import { SectionHead } from './SectionHead';
 import type { PlayerStanding, TournamentState } from '../engine/tournament';
 
@@ -28,6 +28,7 @@ export function Leaderboard({ state }: { state: TournamentState }) {
                 <div className="lb-name">
                   {p.player.name}
                   {tag && <span className="podium-tag">{tag}</span>}
+                  {p.isWoodenSpoonOwner && <WoodenSpoonTag />}
                 </div>
                 <div className="lb-teams">
                   {p.teams.map((t) => (

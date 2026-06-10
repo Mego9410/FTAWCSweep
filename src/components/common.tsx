@@ -1,6 +1,20 @@
 import { getTeam } from '../data/teams';
 import { useOpenTeam } from '../context/TeamNav';
+import { useWoodenSpoonTeamId } from '../context/WoodenSpoon';
 import type { TeamProgress, TeamState } from '../engine/tournament';
+
+export function WoodenSpoonTag({ title }: { title?: string }) {
+  return (
+    <span
+      className="wooden-spoon"
+      role="img"
+      aria-label="Wooden spoon"
+      title={title ?? 'Wooden spoon — most goals conceded in the group stage'}
+    >
+      🥄
+    </span>
+  );
+}
 
 export function Wordmark({ variant = 'nav' }: { variant?: 'nav' | 'footer' | 'gate' }) {
   return (
@@ -32,11 +46,14 @@ export function TeamName({
   }
   const team = getTeam(teamId);
   const openTeam = useOpenTeam();
+  const woodenSpoonTeamId = useWoodenSpoonTeamId();
+  const showWoodenSpoon = teamId === woodenSpoonTeamId;
   const cls = ['team', size ?? '', out ? 'out' : ''].filter(Boolean).join(' ');
   const inner = (
     <>
       <Flag iso={team.iso} />
       <span>{team.name}</span>
+      {showWoodenSpoon && <WoodenSpoonTag />}
     </>
   );
 
@@ -60,10 +77,13 @@ export function TeamChip({ progress }: { progress: TeamProgress }) {
   const team = getTeam(progress.teamId);
   const isOut = OUT_STATES.includes(progress.state);
   const openTeam = useOpenTeam();
+  const woodenSpoonTeamId = useWoodenSpoonTeamId();
+  const showWoodenSpoon = progress.teamId === woodenSpoonTeamId;
   const inner = (
     <>
       <Flag iso={team.iso} />
       {team.name}
+      {showWoodenSpoon && <WoodenSpoonTag />}
     </>
   );
 

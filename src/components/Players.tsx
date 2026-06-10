@@ -1,4 +1,4 @@
-import { StatusBadge, TeamName } from './common';
+import { StatusBadge, TeamName, WoodenSpoonTag } from './common';
 import { SectionHead } from './SectionHead';
 import type { PlayerStanding, TournamentState } from '../engine/tournament';
 
@@ -29,6 +29,7 @@ function PlayerCard({ standing }: { standing: PlayerStanding }) {
         {win && <span style={{ fontSize: 22 }}>🏆</span>}
         {!win && standing.isRunnerUpOwner && <span style={{ fontSize: 20 }}>🥈</span>}
         {!win && standing.isThirdOwner && <span style={{ fontSize: 20 }}>🥉</span>}
+        {standing.isWoodenSpoonOwner && <WoodenSpoonTag />}
       </div>
       <div>
         {standing.teams.map((t) => (
