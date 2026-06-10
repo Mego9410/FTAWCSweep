@@ -394,8 +394,12 @@ button{font-family:var(--font-sans)}
   .nav-links{display:none}
   .nav-actions{display:none}
   .nav-menu-toggle{display:inline-flex}
+  .nav-header{position:fixed;top:0;left:0;right:0;z-index:52}
   .nav-inner{min-height:64px}
   :root{--nav-menu-top:calc(4px + env(safe-area-inset-top) + 64px)}
+  main{padding-top:var(--nav-menu-top)}
+  .hero{padding-top:var(--nav-menu-top)}
+  .hero + main{padding-top:0}
   .wordmark img{height:34px}
   .footer-inner{grid-template-columns:1fr;gap:32px}
   .sec-head{margin-bottom:var(--sp-8)}
