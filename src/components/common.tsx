@@ -2,6 +2,13 @@ import { getTeam } from '../data/teams';
 import { useOpenTeam } from '../context/TeamNav';
 import { useWoodenSpoonTeamId } from '../context/WoodenSpoon';
 import type { TeamProgress, TeamState } from '../engine/tournament';
+import { formatMatchKickoffUk } from '../utils/kickoff';
+
+export function MatchKickoff({ matchNo }: { matchNo: number }) {
+  const label = formatMatchKickoffUk(matchNo);
+  if (!label) return null;
+  return <span className="match-kickoff">{label}</span>;
+}
 
 export function WoodenSpoonTag({ title }: { title?: string }) {
   return (

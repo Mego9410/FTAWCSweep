@@ -1,4 +1,4 @@
-import { TeamName } from './common';
+import { MatchKickoff, TeamName } from './common';
 import { SectionHead } from './SectionHead';
 import type { ResolvedMatch, TournamentState } from '../engine/tournament';
 import type { Stage } from '../data/fixtures';
@@ -66,7 +66,10 @@ function Tie({ match, isFinal }: { match: ResolvedMatch; isFinal?: boolean }) {
 
   return (
     <div className={`tie ${match.decided ? 'done' : ''} ${isFinal ? 'final-tie' : ''}`}>
-      <div className="no">Match {match.no}</div>
+      <div className="tie-head">
+        <span className="no">Match {match.no}</span>
+        <MatchKickoff matchNo={match.no} />
+      </div>
       <div className={`tie-row ${homeWin ? 'win' : ''}`}>
         <TeamName teamId={match.homeId} size="sm" out={match.decided && awayWin} />
         <span className="score">{result ? result.home : ''}</span>

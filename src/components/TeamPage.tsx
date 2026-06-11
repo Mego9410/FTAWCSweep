@@ -7,7 +7,7 @@ import {
   stageLabel,
 } from '../engine/teamProfile';
 import type { ResolvedMatch, TournamentState } from '../engine/tournament';
-import { Flag, StatusBadge, TeamName, WoodenSpoonTag } from './common';
+import { Flag, MatchKickoff, StatusBadge, TeamName, WoodenSpoonTag } from './common';
 
 export function TeamPage({
   teamId,
@@ -132,6 +132,7 @@ function TeamMatchRow({ match: m, teamId }: { match: ResolvedMatch; teamId: stri
       <div className="team-match-meta">
         <span className="badge badge-tip">M{m.no}</span>
         <span className="team-match-stage">{stageLabel(m)}</span>
+        <MatchKickoff matchNo={m.no} />
         <span className="meta team-match-venue">{m.fixture.venue}</span>
         <span className="meta team-match-date">{m.fixture.date}</span>
       </div>

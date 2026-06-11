@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { STAGE_LABEL, type Slot } from '../data/fixtures';
 import { TEAMS, getTeam } from '../data/teams';
 import { PLAYERS, ownerOf } from '../data/players';
-import { TeamName } from './common';
+import { MatchKickoff, TeamName } from './common';
 import { SectionHead } from './SectionHead';
 import type { ResolvedMatch, TournamentState } from '../engine/tournament';
 
@@ -155,6 +155,7 @@ function FixtureRow({ match: m }: { match: ResolvedMatch }) {
       <div className="fixture-meta">
         <span className="badge badge-tip">M{m.no}</span>
         <span className="fixture-stage">{stageBadge(m.stage, m.fixture.group)}</span>
+        <MatchKickoff matchNo={m.no} />
         <span className="fixture-venue meta">{m.fixture.venue}</span>
       </div>
 
