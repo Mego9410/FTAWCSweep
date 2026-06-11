@@ -29,7 +29,7 @@ export interface MatchResult {
 export const RESULTS: Record<number, MatchResult | null> = {
   // ---------------- GROUP STAGE ----------------
   // -- Matchday 1 --
-  1:  null, // A · Mexico v South Africa
+  1:  { home: 2, away: 0 }, // A · Mexico v South Africa
   2:  null, // A · Korea Republic v Czechia
   3:  null, // B · Canada v Bosnia and Herzegovina
   4:  null, // D · USA v Paraguay
