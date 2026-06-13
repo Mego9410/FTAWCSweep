@@ -162,7 +162,7 @@ function FixtureRow({ match: m }: { match: ResolvedMatch }) {
       <div className="fixture-teams">
         <div className={`fixture-side ${homeWin ? 'win' : ''}`}>
           {m.homeId ? (
-            <TeamName teamId={m.homeId} out={m.decided && awayWin} />
+            <TeamName teamId={m.homeId} out={m.stage !== 'group' && m.decided && awayWin} />
           ) : (
             <span className="team tbd">{describeSlot(m.fixture.home)}</span>
           )}
@@ -176,7 +176,7 @@ function FixtureRow({ match: m }: { match: ResolvedMatch }) {
 
         <div className={`fixture-side away ${awayWin ? 'win' : ''}`}>
           {m.awayId ? (
-            <TeamName teamId={m.awayId} out={m.decided && homeWin} />
+            <TeamName teamId={m.awayId} out={m.stage !== 'group' && m.decided && homeWin} />
           ) : (
             <span className="team tbd">{describeSlot(m.fixture.away)}</span>
           )}

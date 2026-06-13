@@ -31,8 +31,8 @@ export const RESULTS: Record<number, MatchResult | null> = {
   // -- Matchday 1 --
   1:  { home: 2, away: 0 }, // A · Mexico v South Africa
   2:  { home: 2, away: 1 }, // A · Korea Republic v Czechia
-  3:  null, // B · Canada v Bosnia and Herzegovina
-  4:  null, // D · USA v Paraguay
+  3:  { home: 1, away: 1 }, // B · Canada v Bosnia and Herzegovina
+  4:  { home: 4, away: 1 }, // D · USA v Paraguay
   5:  null, // C · Haiti v Scotland
   6:  null, // D · Australia v Türkiye
   7:  null, // C · Brazil v Morocco
