@@ -15,7 +15,7 @@ export function Leaderboard({ state }: { state: TournamentState }) {
       <SectionHead
         eyebrow="Standings"
         title="Leaderboard"
-        subtitle="Ranked by best-placed team, then teams still alive. The trophy decides the winner."
+        subtitle="Ranked by total group-stage points, then goal difference. The trophy decides the winner."
       />
 
       <div className="lb">
@@ -40,6 +40,9 @@ export function Leaderboard({ state }: { state: TournamentState }) {
                 <span className={`st st-${p.teams[0].state}`}>Best: {p.bestLabel}</span>
                 <span className="lb-alive">
                   <b>{p.aliveCount}</b> {p.aliveCount === 1 ? 'team' : 'teams'} still in
+                </span>
+                <span className="lb-pts meta">
+                  <b>{p.totalPoints}</b> pts · GD {p.totalGD >= 0 ? '+' : ''}{p.totalGD}
                 </span>
               </div>
             </div>

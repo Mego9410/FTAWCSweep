@@ -77,6 +77,8 @@ export interface PlayerStanding {
   aliveCount: number;
   bestWeight: number;
   bestLabel: string;
+  totalPoints: number;
+  totalGD: number;
   isChampionOwner: boolean;
   isRunnerUpOwner: boolean;
   isThirdOwner: boolean;
@@ -403,22 +405,35 @@ export function computeTournament(): TournamentState {
   }
 
   // --- Player leaderboard ---
+  // Build a flat lookup: teamId -> StandingRow (from whichever group they're in)
+  const teamStandingRow: Record<string, StandingRow> = {};
+  for (const g of GROUP_LETTERS) {
+    for (const row of groupTables[g]) {
+      teamStandingRow[row.teamId] = row;
+    }
+  }
+
   const players: PlayerStanding[] = PLAYERS.map((p) => {
     const teams = p.teams.map((id) => progress[id]);
     const best = teams.reduce((acc, t) => (t.weight > acc.weight ? t : acc), teams[0]);
+    const totalPoints = p.teams.reduce((sum, id) => sum + (teamStandingRow[id]?.points ?? 0), 0);
+    const totalGD = p.teams.reduce((sum, id) => sum + (teamStandingRow[id]?.gd ?? 0), 0);
     return {
       player: p,
       teams: [...teams].sort((a, b) => b.weight - a.weight),
       aliveCount: teams.filter((t) => t.alive).length,
       bestWeight: best.weight,
       bestLabel: best.label,
+      totalPoints,
+      totalGD,
       isChampionOwner: !!champion && p.teams.includes(champion),
       isRunnerUpOwner: !!runnerUp && p.teams.includes(runnerUp),
       isThirdOwner: !!third && p.teams.includes(third),
       isWoodenSpoonOwner: !!woodenSpoonTeamId && p.teams.includes(woodenSpoonTeamId),
     };
   }).sort((a, b) => {
-    if (b.bestWeight !== a.bestWeight) return b.bestWeight - a.bestWeight;
+    if (b.totalPoints !== a.totalPoints) return b.totalPoints - a.totalPoints;
+    if (b.totalGD !== a.totalGD) return b.totalGD - a.totalGD;
     if (b.aliveCount !== a.aliveCount) return b.aliveCount - a.aliveCount;
     return a.player.name.localeCompare(b.player.name);
   });
