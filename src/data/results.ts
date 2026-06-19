@@ -49,16 +49,16 @@ export const RESULTS: Record<number, MatchResult | null> = {
   18: { home: 1, away: 4 }, // I · Iraq v Norway
   19: { home: 3, away: 0 }, // J · Argentina v Algeria
   20: { home: 3, away: 1 }, // J · Austria v Jordan
-  21: null, // L · Ghana v Panama
-  22: null, // L · England v Croatia
-  23: null, // K · Portugal v Congo DR
-  24: null, // K · Uzbekistan v Colombia
+  21: { home: 1, away: 0 }, // L · Ghana v Panama
+  22: { home: 4, away: 2 }, // L · England v Croatia
+  23: { home: 1, away: 1 }, // K · Portugal v Congo DR
+  24: { home: 1, away: 3 }, // K · Uzbekistan v Colombia
 
   // -- Matchday 2 --
-  25: null, // A · Czechia v South Africa
-  26: null, // B · Switzerland v Bosnia and Herzegovina
-  27: null, // B · Canada v Qatar
-  28: null, // A · Mexico v Korea Republic
+  25: { home: 1, away: 1 }, // A · Czechia v South Africa
+  26: { home: 4, away: 1 }, // B · Switzerland v Bosnia and Herzegovina
+  27: { home: 6, away: 0 }, // B · Canada v Qatar
+  28: { home: 1, away: 0 }, // A · Mexico v Korea Republic
   29: null, // C · Brazil v Haiti
   30: null, // C · Scotland v Morocco
   31: null, // D · Türkiye v Paraguay
