@@ -59,16 +59,16 @@ export const RESULTS: Record<number, MatchResult | null> = {
   26: { home: 4, away: 1 }, // B · Switzerland v Bosnia and Herzegovina
   27: { home: 6, away: 0 }, // B · Canada v Qatar
   28: { home: 1, away: 0 }, // A · Mexico v Korea Republic
-  29: null, // C · Brazil v Haiti
-  30: null, // C · Scotland v Morocco
-  31: null, // D · Türkiye v Paraguay
-  32: null, // D · USA v Australia
-  33: null, // E · Germany v Côte d'Ivoire
-  34: null, // E · Ecuador v Curaçao
-  35: null, // F · Netherlands v Sweden
-  36: null, // F · Tunisia v Japan
+  29: { home: 3, away: 0 }, // C · Brazil v Haiti
+  30: { home: 0, away: 1 }, // C · Scotland v Morocco
+  31: { home: 0, away: 1 }, // D · Türkiye v Paraguay
+  32: { home: 2, away: 0 }, // D · USA v Australia
+  33: { home: 2, away: 1 }, // E · Germany v Côte d'Ivoire
+  34: { home: 0, away: 0 }, // E · Ecuador v Curaçao
+  35: { home: 5, away: 1 }, // F · Netherlands v Sweden
+  36: { home: 0, away: 4 }, // F · Tunisia v Japan
   37: null, // H · Uruguay v Cabo Verde
-  38: null, // H · Spain v Saudi Arabia
+  38: { home: 4, away: 0 }, // H · Spain v Saudi Arabia
   39: null, // G · Belgium v IR Iran
   40: null, // G · New Zealand v Egypt
   41: null, // I · Norway v Senegal
