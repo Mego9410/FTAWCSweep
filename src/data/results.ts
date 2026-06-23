@@ -71,10 +71,10 @@ export const RESULTS: Record<number, MatchResult | null> = {
   38: { home: 4, away: 0 }, // H · Spain v Saudi Arabia
   39: { home: 0, away: 0 }, // G · Belgium v IR Iran
   40: { home: 1, away: 3 }, // G · New Zealand v Egypt
-  41: null, // I · Norway v Senegal
-  42: null, // I · France v Iraq
-  43: null, // J · Argentina v Austria
-  44: null, // J · Jordan v Algeria
+  41: { home: 3, away: 2 }, // I · Norway v Senegal
+  42: { home: 3, away: 0 }, // I · France v Iraq
+  43: { home: 2, away: 0 }, // J · Argentina v Austria
+  44: { home: 1, away: 2 }, // J · Jordan v Algeria
   45: null, // L · England v Ghana
   46: null, // L · Panama v Croatia
   47: null, // K · Portugal v Uzbekistan
