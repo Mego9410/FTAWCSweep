@@ -75,10 +75,10 @@ export const RESULTS: Record<number, MatchResult | null> = {
   42: { home: 3, away: 0 }, // I · France v Iraq
   43: { home: 2, away: 0 }, // J · Argentina v Austria
   44: { home: 1, away: 2 }, // J · Jordan v Algeria
-  45: null, // L · England v Ghana
-  46: null, // L · Panama v Croatia
-  47: null, // K · Portugal v Uzbekistan
-  48: null, // K · Colombia v Congo DR
+  45: { home: 0, away: 0 }, // L · England v Ghana
+  46: { home: 0, away: 1 }, // L · Panama v Croatia
+  47: { home: 5, away: 0 }, // K · Portugal v Uzbekistan
+  48: { home: 1, away: 0 }, // K · Colombia v Congo DR
 
   // -- Matchday 3 --
   49: null, // C · Scotland v Brazil
