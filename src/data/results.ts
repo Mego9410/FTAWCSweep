@@ -81,18 +81,18 @@ export const RESULTS: Record<number, MatchResult | null> = {
   48: { home: 1, away: 0 }, // K · Colombia v Congo DR
 
   // -- Matchday 3 --
-  49: null, // C · Scotland v Brazil
-  50: null, // C · Morocco v Haiti
-  51: null, // B · Switzerland v Canada
-  52: null, // B · Bosnia and Herzegovina v Qatar
-  53: null, // A · Czechia v Mexico
-  54: null, // A · South Africa v Korea Republic
-  55: null, // E · Curaçao v Côte d'Ivoire
-  56: null, // E · Ecuador v Germany
-  57: null, // F · Japan v Sweden
-  58: null, // F · Tunisia v Netherlands
-  59: null, // D · Türkiye v USA
-  60: null, // D · Paraguay v Australia
+  49: { home: 0, away: 3 }, // C · Scotland v Brazil
+  50: { home: 4, away: 2 }, // C · Morocco v Haiti
+  51: { home: 2, away: 1 }, // B · Switzerland v Canada
+  52: { home: 3, away: 1 }, // B · Bosnia and Herzegovina v Qatar
+  53: { home: 0, away: 3 }, // A · Czechia v Mexico
+  54: { home: 1, away: 0 }, // A · South Africa v Korea Republic
+  55: { home: 0, away: 2 }, // E · Curaçao v Côte d'Ivoire
+  56: { home: 2, away: 1 }, // E · Ecuador v Germany
+  57: { home: 1, away: 1 }, // F · Japan v Sweden
+  58: { home: 1, away: 3 }, // F · Tunisia v Netherlands
+  59: { home: 3, away: 2 }, // D · Türkiye v USA
+  60: { home: 0, away: 0 }, // D · Paraguay v Australia
   61: null, // I · Norway v France
   62: null, // I · Senegal v Iraq
   63: null, // G · Egypt v IR Iran
