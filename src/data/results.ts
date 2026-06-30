@@ -93,18 +93,18 @@ export const RESULTS: Record<number, MatchResult | null> = {
   58: { home: 1, away: 3 }, // F · Tunisia v Netherlands
   59: { home: 3, away: 2 }, // D · Türkiye v USA
   60: { home: 0, away: 0 }, // D · Paraguay v Australia
-  61: null, // I · Norway v France
-  62: null, // I · Senegal v Iraq
-  63: null, // G · Egypt v IR Iran
-  64: null, // G · New Zealand v Belgium
-  65: null, // H · Cabo Verde v Saudi Arabia
-  66: null, // H · Uruguay v Spain
-  67: null, // L · Panama v England
-  68: null, // L · Croatia v Ghana
-  69: null, // J · Algeria v Austria
-  70: null, // J · Jordan v Argentina
-  71: null, // K · Colombia v Portugal
-  72: null, // K · Congo DR v Uzbekistan
+  61: { home: 1, away: 4 }, // I · Norway v France
+  62: { home: 5, away: 0 }, // I · Senegal v Iraq
+  63: { home: 1, away: 1 }, // G · Egypt v IR Iran
+  64: { home: 1, away: 5 }, // G · New Zealand v Belgium
+  65: { home: 0, away: 0 }, // H · Cabo Verde v Saudi Arabia
+  66: { home: 0, away: 1 }, // H · Uruguay v Spain
+  67: { home: 0, away: 2 }, // L · Panama v England
+  68: { home: 2, away: 1 }, // L · Croatia v Ghana
+  69: { home: 3, away: 3 }, // J · Algeria v Austria
+  70: { home: 1, away: 3 }, // J · Jordan v Argentina
+  71: { home: 0, away: 0 }, // K · Colombia v Portugal
+  72: { home: 3, away: 1 }, // K · Congo DR v Uzbekistan
 
   // ---------------- ROUND OF 32 ----------------
   73: null, // Runner-up A v Runner-up B
