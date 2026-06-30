@@ -107,10 +107,10 @@ export const RESULTS: Record<number, MatchResult | null> = {
   72: { home: 3, away: 1 }, // K · Congo DR v Uzbekistan
 
   // ---------------- ROUND OF 32 ----------------
-  73: null, // Runner-up A v Runner-up B
-  74: null, // Winner E v best third (A/B/C/D/F)
-  75: null, // Winner F v Runner-up C
-  76: null, // Winner C v Runner-up F
+  73: { home: 0, away: 1 }, // Runner-up A v Runner-up B (South Africa v Canada)
+  74: { home: 1, away: 1, pens: 'away' }, // Winner E v best third (Germany v Paraguay)
+  75: { home: 1, away: 1, pens: 'away' }, // Winner F v Runner-up C (Netherlands v Morocco)
+  76: { home: 2, away: 1 }, // Winner C v Runner-up F (Brazil v Japan)
   77: null, // Winner I v best third (C/D/F/G/H)
   78: null, // Runner-up E v Runner-up I
   79: null, // Winner A v best third (C/E/F/H/I)
