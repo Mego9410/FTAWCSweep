@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 jobs:
   update-results:
@@ -28,5 +29,4 @@ jobs:
             null. If nothing new has finished, make no changes. Commit any
             changes with a clear message and push directly to the current
             branch (main).
-          allowed_tools: "Read,Edit,Bash,WebSearch"
-          max_turns: 30
+          claude_args: "--allowedTools Read,Edit,Bash,WebSearch --max-turns 30"
