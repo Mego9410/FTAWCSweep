@@ -1,0 +1,32 @@
+name: Daily World Cup results update
+
+on:
+  schedule:
+    # 07:04 UTC every day — adjust if you want a different local time
+    - cron: '4 7 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-results:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Claude to update results.ts
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Search the web for any newly completed FIFA World Cup 2026 matches
+            since the last update. Cross-check scores with at least two sources
+            before writing them. Edit src/data/results.ts to fill in the
+            corresponding match numbers (matching home/away order to
+            src/data/fixtures.ts). Leave matches that have not finished as
+            null. If nothing new has finished, make no changes. Commit any
+            changes with a clear message and push directly to the current
+            branch (main).
+          allowed_tools: "Read,Edit,Bash,WebSearch"
+          max_turns: 30
