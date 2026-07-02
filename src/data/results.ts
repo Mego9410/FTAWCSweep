@@ -114,9 +114,9 @@ export const RESULTS: Record<number, MatchResult | null> = {
   77: { home: 3, away: 0 }, // Winner I v best third (France v Sweden)
   78: { home: 1, away: 2 }, // Runner-up E v Runner-up I (Côte d'Ivoire v Norway)
   79: { home: 2, away: 0 }, // Winner A v best third (Mexico v Ecuador)
-  80: null, // Winner L v best third (E/H/I/J/K)
-  81: null, // Winner D v best third (B/E/F/I/J)
-  82: null, // Winner G v best third (A/E/H/I/J)
+  80: { home: 2, away: 1 }, // Winner L v best third (England v Congo DR)
+  81: { home: 2, away: 0 }, // Winner D v best third (USA v Bosnia and Herzegovina)
+  82: { home: 3, away: 2 }, // Winner G v best third (Belgium v Senegal, a.e.t.)
   83: null, // Runner-up K v Runner-up L
   84: null, // Winner H v Runner-up J
   85: null, // Winner B v best third (E/F/G/I/J)
