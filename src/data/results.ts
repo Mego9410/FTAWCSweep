@@ -120,9 +120,9 @@ export const RESULTS: Record<number, MatchResult | null> = {
   83: { home: 2, away: 1 }, // Runner-up K v Runner-up L (Portugal v Croatia)
   84: { home: 3, away: 0 }, // Winner H v Runner-up J (Spain v Austria)
   85: { home: 2, away: 0 }, // Winner B v best third (Switzerland v Algeria)
-  86: null, // Winner J v Runner-up H
-  87: null, // Winner K v best third (D/E/I/J/L)
-  88: null, // Runner-up D v Runner-up G
+  86: { home: 3, away: 2 }, // Winner J v Runner-up H (Argentina v Cabo Verde, a.e.t.)
+  87: { home: 1, away: 0 }, // Winner K v best third (Colombia v Ghana)
+  88: { home: 1, away: 1, pens: 'away' }, // Runner-up D v Runner-up G (Australia v Egypt, 2–4 pens)
 
   // ---------------- ROUND OF 16 ----------------
   89: null, // Winner M74 v Winner M77
