@@ -127,8 +127,8 @@ export const RESULTS: Record<number, MatchResult | null> = {
   // ---------------- ROUND OF 16 ----------------
   89: { home: 0, away: 1 }, // Winner M74 v Winner M77 (Paraguay v France)
   90: { home: 0, away: 3 }, // Winner M73 v Winner M75 (Canada v Morocco)
-  91: null, // Winner M76 v Winner M78
-  92: null, // Winner M79 v Winner M80
+  91: { home: 1, away: 2 }, // Winner M76 v Winner M78 (Brazil v Norway)
+  92: { home: 2, away: 3 }, // Winner M79 v Winner M80 (Mexico v England)
   93: null, // Winner M83 v Winner M84
   94: null, // Winner M81 v Winner M82
   95: null, // Winner M86 v Winner M88
