@@ -129,10 +129,10 @@ export const RESULTS: Record<number, MatchResult | null> = {
   90: { home: 0, away: 3 }, // Winner M73 v Winner M75 (Canada v Morocco)
   91: { home: 1, away: 2 }, // Winner M76 v Winner M78 (Brazil v Norway)
   92: { home: 2, away: 3 }, // Winner M79 v Winner M80 (Mexico v England)
-  93: null, // Winner M83 v Winner M84
-  94: null, // Winner M81 v Winner M82
-  95: null, // Winner M86 v Winner M88
-  96: null, // Winner M85 v Winner M87
+  93: { home: 0, away: 1 }, // Winner M83 v Winner M84 (Portugal v Spain)
+  94: { home: 1, away: 4 }, // Winner M81 v Winner M82 (USA v Belgium)
+  95: { home: 3, away: 2 }, // Winner M86 v Winner M88 (Argentina v Egypt)
+  96: { home: 0, away: 0, pens: 'away' }, // Winner M85 v Winner M87 (Switzerland v Colombia, 3–4 pens)
 
   // ---------------- QUARTER-FINALS ----------------
   97:  null, // Winner M89 v Winner M90
