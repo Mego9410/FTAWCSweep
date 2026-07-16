@@ -29,4 +29,4 @@ jobs:
             null. If nothing new has finished, make no changes. Commit any
             changes with a clear message and push directly to the current
             branch (main).
-          claude_args: "--allowedTools Read,Edit,Bash,WebSearch --max-turns 30"
+          claude_args: "--model sonnet --allowedTools Read,Edit,Bash,WebSearch --max-turns 30"

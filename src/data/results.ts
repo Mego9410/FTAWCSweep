@@ -142,7 +142,7 @@ export const RESULTS: Record<number, MatchResult | null> = {
 
   // ---------------- SEMI-FINALS ----------------
   101: { home: 0, away: 2 }, // Winner M97 v Winner M98 (France v Spain)
-  102: null, // Winner M99 v Winner M100
+  102: { home: 1, away: 2 }, // Winner M99 v Winner M100 (England v Argentina)
 
   // ---------------- FINALS ----------------
   103: null, // Third-place play-off: Loser M101 v Loser M102
