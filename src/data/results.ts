@@ -146,5 +146,5 @@ export const RESULTS: Record<number, MatchResult | null> = {
 
   // ---------------- FINALS ----------------
   103: { home: 4, away: 6 }, // Third-place play-off: Loser M101 v Loser M102 (France v England)
-  104: null, // FINAL: Winner M101 v Winner M102
+  104: { home: 1, away: 0 }, // FINAL: Winner M101 v Winner M102 (Spain v Argentina, a.e.t.)
 };
